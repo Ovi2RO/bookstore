@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <div class='title form'>
+       
+        <h3>{{ book.title }}</h3>
+        <h4>{{ book.author }}</h4>
+        
+        <p>{{ book.description }}</p>
+        <p>Released: {{ book.published_date }}</p>
+        <p><strong>For only: {{ book.price }}</strong></p>
+        <div class="text-center">
+            <a href="{% url 'book-edit' book.pk %}" class="navbar-button">Edit</a>
+            <a href="{% url 'book-delete' book.pk %}" class="navbar-button">Delete</a>
+        </div>
+    </div>
+
+    
+{% endblock %}
+
+
+
+
+
+

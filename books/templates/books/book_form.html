@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class='title'>Book list</h1>
+
+    <form method="post" class="title form">{% csrf_token %}
+        <div class="title">
+           <label for="title">Title:</label>
+           {{ form.title }}
+        </div>
+        <div class="title">
+           <label for="author">Author:</label>
+           {{ form.author }}
+        </div>
+        <div class="title">
+            <label for="description">Description:</label>
+            {{ form.description }}
+         </div>
+         <div class="title">
+            <label for="published_date">Published:</label>
+            {{ form.published_date }}
+         </div>
+         <div class="title">
+            <label for="price">Price:</label>
+            {{ form.price }}
+         </div>
+         
+
+        <input type="submit" value="Submit" class="button-n">
+     </form>
+{% endblock %}

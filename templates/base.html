@@ -1,0 +1,39 @@
+{% load static %}
+{% load i18n %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+<nav class="navbar">
+  <div class="align-left">
+    {% if user.is_authenticated %}
+      <a class="navbar-button" href="{% url 'home' %}">Home</a>
+      <a class="navbar-button" href="{% url 'book-list' %}">List</a>
+      <a class="navbar-button" href="{% url 'book-create' %}">Add</a>
+    {% endif %}
+  </div>
+
+  {% if user.is_authenticated %}
+    <div class="align-right">
+      <a>Hello <strong>{{ user.username }}</strong></a>
+      <a class="navbar-button" href="{% url 'logout' %}">LogOut</a>
+    </div>
+  {% else %}
+    <div class="align-right">
+      <a class="navbar-button" href="{% url 'login' %}">Log In</a>
+      <a class="navbar-button" href="{% url 'signup' %}">Sign Up</a>
+    </div>
+  {% endif %}
+
+  
+</nav>
+
+<div class='title'>
+  {% if user.is_authenticated %}
+    <p>You are logged in as <strong>{{ user.username }}</strong></p>
+  {% else %}
+    <p>You are not logged in</p>
+  {% endif %}
+</div>
+
+{% block content %}
+
+{% endblock  %}
